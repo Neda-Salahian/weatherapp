@@ -30,4 +30,3 @@ Willkommen bei der Wetter-App! Mit dieser Anwendung können Benutzer aktuelle We
 - HTML, CSS, JavaScript
 - React.js
 - OpenWeatherMap-API
->>>>>>> ba2b3ee32a0f8ad5f536f898a0531988f4adf249
