@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Username } from "../context/Username.jsx"
 import { useContext } from "react"
 
-function FormUserName(){
 
-    const {name, setName} = useContext(Username);
+function FormUserName({onLogIn}){
+
+    const {setName} = useContext(Username);
     const [inputName, setInputName] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false)
 
@@ -21,6 +22,7 @@ function FormUserName(){
         setName(inputName)
         setIsSubmitted(false)
         setInputName("")
+        onLogIn()
     }
 
     return (

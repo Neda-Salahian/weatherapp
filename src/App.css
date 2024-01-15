@@ -5,7 +5,7 @@
 }
 
 .bg-startsite {
-    background-image: url("./assets/cloud-blue-sky.jpg");
+    background-image: url("./assets/sunny.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -49,7 +49,7 @@ form button {
     border: none;
     padding: 10px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.7) url("./assets/cloud-blue-sky.jpg") center;
+    background: rgba(255, 255, 255, 0.7) url("./assets/sunny.jpg") center;
    font-size: 20px;
 }
 
