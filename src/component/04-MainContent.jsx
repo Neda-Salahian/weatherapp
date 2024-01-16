@@ -1,7 +1,8 @@
 import { Username } from "../context/Username.jsx";
 import { useContext } from "react";
 
-function MainContent() {
+
+function MainContent({onLogOut}) {
   const { name } = useContext(Username);
 
   return (
@@ -10,6 +11,11 @@ function MainContent() {
         <h3>Hi {name}, Have a nice day!</h3>
         <p>The API renders here</p>
       </div>
+
+      <div className="fetch-section">
+      </div>
+
+      <button onClick={onLogOut}>Log Out</button>
     </div>
   );
 }

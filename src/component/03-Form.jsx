@@ -17,7 +17,7 @@ function FormUserName({onLogIn}){
         if(inputName === ""){
     
             setIsLoggedIn(false)
-            alert("insert your name")
+            alert("Please input your name !")
 
             return;
         }
