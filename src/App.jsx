@@ -1,11 +1,11 @@
-
-import './App.css';
+import "./App.css";
+import Opening from "./component/00-Opening.jsx";
 
 function App() {
 
   return (
     <>
-      <div>Weather App</div>
+    <Opening />
     </>
   );
 }

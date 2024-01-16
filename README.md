@@ -1,3 +1,4 @@
+
 # Weather-App 
 
 Welcome to the Weather App! This application allows users to retrieve current weather information for a specific location by utilizing the OpenWeatherMap API. Users can simply type and search for a location to get real-time weather updates.
