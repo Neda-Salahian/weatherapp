@@ -1,28 +1,18 @@
-<<<<<<< HEAD
-*{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-=======
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 .bg-startsite {
     background-image: url("./assets/sunny.jpg");
     height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
-
 header {
     padding: 20px 10px;
 }
-
 h1 {
     color: #394434;
     font-size: 35px;
@@ -30,25 +20,21 @@ h1 {
     margin: 50px 0;
     font-weight: unset;
 }
-
 .form-section {
     padding: 20px 10px;
     /* margin-left: 20px; */
 }
-
 h2 {
     font-weight: unset;
     font-size: 30px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
 form {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
-
 form input,
 form button {
     /* border: 1px solid black; */
@@ -58,21 +44,16 @@ form button {
     background: rgba(255, 255, 255, 0.7) url("./assets/sunny.jpg") center;
    font-size: 20px;
 }
-
 button {
-    transition: all 500ms ease-in-out; 
+    transition: all 500ms ease-in-out;
 }
-
 button:hover {
     transform: scale(1.1);
 }
-
 .submit-text {
     font-size: 20px;
     margin-top: 10px;
 }
-
 .maincontent-bg {
     height: 100vh;
->>>>>>> 61f3b26f4b5532a3c0b18c7bcb7372244e0ddd0e
 }
