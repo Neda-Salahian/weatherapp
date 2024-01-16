@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+
+// import Username context
+import { Username } from "./context/Username.jsx";
+import { LogInContext } from "./context/LogInContext.jsx";
+
+// import component
+import StartSite from "./component/01-StartSite.jsx";
+import MainContent from "./component/04-MainContent.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+  useEffect(() => {
+    const storedName = localStorage.getItem("LoggedInName");
+    
+    if (storedName) {
+      setName(JSON.parse(storedName));
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogIn = (inputName) => {
+    localStorage.setItem("LoggedInName", JSON.stringify(inputName));
+    setName(inputName);
+    setIsLoggedIn(true);
+  };
+
+  const handleLogOut = () => {
+    localStorage.removeItem("LoggedInName");
+    setName("");
+    setIsLoggedIn(false)
+  }
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <LogInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+        <Username.Provider value={{ name, setName }}>
+          {isLoggedIn ? <MainContent onLogOut = {handleLogOut} /> : <StartSite onLogIn={handleLogIn} />}
+        </Username.Provider>
+      </LogInContext.Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
