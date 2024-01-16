@@ -1,28 +1,31 @@
 import { useState } from "react";
 import { Username } from "../context/Username.jsx"
 import { useContext } from "react"
+import { LogInContext } from "../context/LogInContext.jsx";
 
 
 function FormUserName({onLogIn}){
 
-    const {setName} = useContext(Username);
+    const {name,setName} = useContext(Username);
+    const {isLoggedIn, setIsLoggedIn} = useContext(LogInContext);
     const [inputName, setInputName] = useState("");
-    const [isSubmitted, setIsSubmitted] = useState(false)
+    // const [isSubmitted, setIsSubmitted] = useState(false)
 
     function handleSubmit(event){
         event.preventDefault();
 
         if(inputName === ""){
-            // alert ("Please input your name to continue use the App.")
-            setIsSubmitted(true)
+    
+            setIsLoggedIn(false)
+            alert("insert your name")
 
             return;
         }
 
         setName(inputName)
-        setIsSubmitted(false)
+        setIsLoggedIn(false)
+        onLogIn(inputName)
         setInputName("")
-        onLogIn()
     }
 
     return (
@@ -33,6 +36,7 @@ function FormUserName({onLogIn}){
         <form onSubmit={handleSubmit}>
             <input 
             type="text"
+            name={name}
             placeholder="enter your name"
             value={inputName}
             onChange={(e) => setInputName(e.target.value)}
@@ -40,7 +44,7 @@ function FormUserName({onLogIn}){
              <button type="submit">Continue</button>
         </form>
 
-        {isSubmitted && (<p className="submit-text">Please input your name to continue use the App !</p>) }
+        {/* {!isLoggedIn && (<p className="submit-text">Please input your name to continue use the App !</p>) } */}
         </div>
     )
 }

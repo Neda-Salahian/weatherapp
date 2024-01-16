@@ -1,32 +1,16 @@
 import Header from "./02-Header.jsx";
 import FormUserName from "./03-Form.jsx";
-import { useState } from "react";
-import MainContent from "./04-MainContent.jsx";
+import { LogInContext } from "../context/LogInContext.jsx";
+import { useContext } from "react";
 
-function StartSite() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
-
-    const handleLogIn = () => {
-        setIsLoggedIn(true)
-    }
+function StartSite({onLogIn}) {
   return (
     <div className="bg-startsite">
-
-        {!isLoggedIn ? 
-        (<div className="startSite">
+      <div className="startSite">
             <Header/>
-            <FormUserName onLogIn={handleLogIn}/>
-        </div>) : 
-        (<MainContent/>)}
-
+            <FormUserName onLogIn={onLogIn}/>
+        </div>
         
-    {/* <div className="startSite">
-      <Header />
-
-      {!isLoggedIn ? ( <FormUserName onLogIn={handleLogIn}/>) 
-      : (<MainContent/>)}
-     
-    </div> */}
     </div>
   );
 }

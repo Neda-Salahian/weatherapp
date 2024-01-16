@@ -65,3 +65,7 @@ button:hover {
     font-size: 20px;
     margin-top: 10px;
 }
+
+.maincontent-bg {
+    height: 100vh;
+}
