@@ -47,7 +47,6 @@ function Search({ onLogOut }) {
         <div className="right-section-title">Search your city</div>
         <form onSubmit={handleSubmit} className="search-form">
           <label className="city-field">
-          </label>
             <input
               type="text"
               value={city}
