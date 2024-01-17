@@ -97,9 +97,9 @@ const CurrentWeather = () => {
             <div>
               <h2>Weather Information</h2>
               <p>City: {catchWeather.name}</p>
-              <p>Temperature: {catchWeather.main && catchWeather.main.temp}°C</p>
+              <p>Temperature: {catchWeather.main &&  Math.round(parseFloat(catchWeather.main.temp))}°C</p>
               <p>Weather Condition: {catchWeather.weather && catchWeather.weather[0].description}</p>
-              <p>Feels Like: {catchWeather.main && catchWeather.main.feels_like}°C</p>
+              <p>Feels Like: {catchWeather.main && Math.round(parseFloat(catchWeather.main.feels_like))}°C</p>
               <p>Wind Speed: {catchWeather.wind && catchWeather.wind.speed} m/s</p>
             </div>
           )}
