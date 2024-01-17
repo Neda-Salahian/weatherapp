@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from "react";
 import { data } from "../data/pictureData";
-// import "../currentweather.css";
 import Search from "./Search.jsx";
 import { Username } from "../context/Username.jsx";
 import WeatherContext from "../context/WeatherContext.jsx";
@@ -30,7 +29,7 @@ const CurrentWeather = ({ onLogOut }) => {
         );
       }
     );
-  }, []);
+  }, [longitude, latitude]);
 
   const fetchWeatherData = async (lat, lon) => {
     const url = `${apiUrl}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -102,7 +101,7 @@ const CurrentWeather = ({ onLogOut }) => {
 
               <div className="leftpart-weatherinfo-detail">
                 <h4 className="city">{catchWeather.name}</h4>
-                <h4 className="temperature">{catchWeather.main && catchWeather.main.temp}°C</h4>
+                <h4 className="temperature">{catchWeather.main && catchWeather.main.temp.toFixed(0)}°C</h4>
 
                 <div className="weather-condition">
                   <p>

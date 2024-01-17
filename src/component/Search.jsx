@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import "../App.css";
 import WeatherContext from "../context/WeatherContext";
 
@@ -7,8 +7,6 @@ function Search({ onLogOut }) {
 
   const [city, setCity] = useState("");
   const [error, setError] = useState("");
-  // const [latitude, setLatitude] = useState(null);
-  // const [longitude, setLongitude] = useState(null);
   const apiKey = "d54a96e0b4517e304ec98021394e455b";
   const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
 
@@ -47,7 +45,7 @@ function Search({ onLogOut }) {
     <div className="search-section">
       <div className="top-searchsection">
         <div className="right-section-title">Search your city</div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="search-form">
           <label className="city-field">
             City name:   </label>
             <input
