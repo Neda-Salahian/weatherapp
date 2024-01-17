@@ -7,7 +7,7 @@ import { LogInContext } from "../context/LogInContext.jsx";
 function FormUserName({onLogIn}){
 
     const {name,setName} = useContext(Username);
-    const {isLoggedIn, setIsLoggedIn} = useContext(LogInContext);
+    const {setIsLoggedIn} = useContext(LogInContext);
     const [inputName, setInputName] = useState("");
     // const [isSubmitted, setIsSubmitted] = useState(false)
 

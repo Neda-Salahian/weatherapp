@@ -1,59 +1,252 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 .bg-startsite {
-    background-image: url("./assets/sunny.jpg");
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-image: url("./assets/sunny.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 header {
-    padding: 20px 10px;
+  padding: 20px 10px;
 }
 h1 {
-    color: #394434;
-    font-size: 35px;
-    text-align: center;
-    margin: 50px 0;
-    font-weight: unset;
+  color: #394434;
+  font-size: 35px;
+  text-align: center;
+  margin: 50px 0;
+  font-weight: unset;
 }
 .form-section {
-    padding: 20px 10px;
-    /* margin-left: 20px; */
+  padding: 20px 10px;
 }
 h2 {
-    font-weight: unset;
-    font-size: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+  font-weight: unset;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 form input,
 form button {
-    /* border: 1px solid black; */
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.7) url("./assets/sunny.jpg") center;
-   font-size: 20px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.7) url("./assets/sunny.jpg") center;
+  font-size: 20px;
 }
 button {
-    transition: all 500ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 button:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 .submit-text {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.maincontent {
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+.display-weather {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 2s ease-in-out;
+}
+
+.left-part {
+  width: 70%;
+  height: 100vh;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.leftpart-greeting {
+  font-size: 40px;
+  padding: 20px;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.leftpart-weatherinfo {
+}
+
+.leftpart-weatherinfo h2 {
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+}
+.leftpart-weatherinfo-detail {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  line-height: 2;
+}
+
+.leftpart-weatherinfo-detail .city {
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(59, 56, 56);
+}
+
+.leftpart-weatherinfo-detail .city::first-letter {
+  font-size: 2em;
+  color: black;
+}
+
+.leftpart-weatherinfo-detail .temperature {
+  font-size: 2em;
+}
+
+.leftpart-weatherinfo-detail .weather-condition {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.right-part {
+  float: right;
+  width: 30%;
+  height: 100vh;
+  background-color: rgba(235, 218, 218, 0.3);
+  backdrop-filter: blur(3px);
+}
+
+.right-section-title {
+  font-size: 40px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+.search-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.city-field {
+  font-size: 30px;
+}
+
+.search-button {
+  font-size: 20px;
+}
+
+.icon {
+  position: sticky;
+  left: 0;
+}
+
+.bottom-searchsection {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+  .left-part,
+  .right-part {
+    width: 100%;
+    height: auto;
+    order: unset;
+    transition: all 2s ease-in-out;
+  }
+
+  .left-part {
+    order: 2;
+    height: 70vh;
+  }
+
+  .right-part {
+    order: 1;
+    height: 30vh;
+  }
+
+  .right-section-title {
+    font-size: 25px;
+  }
+  .search-section {
+    padding: 10px;
+  }
+
+  .city-field {
     font-size: 20px;
-    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .search-button {
+    font-size: 18px;
+  }
+
+  .bottom-searchsection {
+    font-size: 18px;
+  }
+
+  .leftpart-greeting {
+    font-size: 30px;
+  }
+
+  .leftpart-weatherinfo h2 {
+    font-size: 25px;
+  }
+  
+  .leftpart-weatherinfo-detail .city {
+    font-size: 28px;
+  }
+
+  .leftpart-weatherinfo-detail .city::first-letter {
+    font-size: 2em;
+  }
+
+  .leftpart-weatherinfo-detail .temperature {
+    font-size: 28px;
+  }
+
+  .leftpart-weatherinfo-detail .weather-condition {
+    font-size: 20px;
+  }
 }
-.maincontent-bg {
-    height: 100vh;
-}
+
+@media (max-width: 1000px) {
+
+    .right-section-title {
+        font-size: 33px;
+      }
+   
+      .city-field {
+        font-size: 22px;
+      }
+
+      .search-button,
+      .bottom-searchsection {
+        font-size: 19px;
+      }
+  }

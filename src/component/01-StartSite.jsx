@@ -1,7 +1,5 @@
 import Header from "./02-Header.jsx";
 import FormUserName from "./03-Form.jsx";
-import { LogInContext } from "../context/LogInContext.jsx";
-import { useContext } from "react";
 
 function StartSite({onLogIn}) {
   return (

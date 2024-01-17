@@ -1,11 +1,11 @@
-import React, { useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { data } from "../data/pictureData";
-import "../currentweather.css";
 import Search from "./Search.jsx";
 import { Username } from "../context/Username.jsx";
 import WeatherContext from "../context/WeatherContext.jsx";
+import "../App.css";
 
-const CurrentWeather = () => {
+const CurrentWeather = ({ onLogOut }) => {
   const [catchWeather, setCatchWeather] = useState(null);
   const { name } = useContext(Username);
   const [latitude, setLatitude] = useState(null);
@@ -30,7 +30,7 @@ const CurrentWeather = () => {
         );
       }
     );
-  }, []);
+  }, [longitude, latitude]);
 
   const fetchWeatherData = async (lat, lon) => {
     const url = `${apiUrl}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
@@ -87,46 +87,51 @@ const CurrentWeather = () => {
     data.find((item) => item.name === catchWeather?.weather?.[0]?.description)
       ?.pic
   })`;
+  const defaultPic = `src/data/default.jpg`;
   // Bild für das jetzige Wetter
 
   console.log(catchWeather);
   return (
     <div className="display-weather" style={{ backgroundImage: weatherBack }}>
       <WeatherContext.Provider value={{ catchWeather, setCatchWeather }}>
-        <div className="top-part">
-          <h3>Willkommen {name}. Haben Sie einen schönen Tag</h3>
+        <div className="left-part">
+          <h3 className="leftpart-greeting">Hai {name}. Have a good day ! </h3>
           {!catchWeather ? (
             <p style={{ color: "black" }}>{error || "Loading...."}</p>
           ) : (
-            <div>
+            <div className="leftpart-weatherinfo">
               <h2>Weather Information</h2>
-              <p>Place: {catchWeather.name}</p>
-              <p>Country: {catchWeather.sys.country}</p>
-              <p>
-                Temperature: {catchWeather.main && catchWeather.main.temp}°C
-              </p>
-              <p>
-                Weather Condition:{" "}
-                {catchWeather.weather && catchWeather.weather[0].description}
-              </p>
-              <p>
-                Feels Like: {catchWeather.main && catchWeather.main.feels_like}
-                °C
-              </p>
-              <p>
-                Wind Speed: {catchWeather.wind && catchWeather.wind.speed} m/s
-              </p>
-              <p>Time: Not implemented</p>
-
               <img
                 src={`http://openweathermap.org/img/w/${catchWeather.weather[0].icon}.png`}
                 alt="weather icon"
               />
+              <div className="leftpart-weatherinfo-detail">
+                <h4 className="city">{catchWeather.name}</h4>
+                <h4 className="temperature">{catchWeather.main && catchWeather.main.temp.toFixed(0)}°C</h4>
+                <div className="weather-condition">
+                  <p>
+                    Weather Condition:{" "}
+                    {catchWeather.weather &&
+                      catchWeather.weather[0].description}
+                  </p>
+                  
+                  <p>
+                    Feels Like:{" "}
+                    {catchWeather.main && catchWeather.main.feels_like.toFixed(0)}
+                    °C
+                  </p>
+                  <p>
+                    Wind Speed: {catchWeather.wind && catchWeather.wind.speed}{" "}
+                    m/s
+                  </p>
+                </div>
+              </div>
             </div>
           )}
-          <div className="bottom-part"></div>
         </div>
-        <Search onSearch={handleSearch} />
+        <div className="right-part">
+          <Search onSearch={handleSearch} onLogOut={onLogOut} />
+        </div>
       </WeatherContext.Provider>
     </div>
   );
