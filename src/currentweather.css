@@ -1,17 +1,5 @@
-.display-weather {
-  width: 100vw;
-  height: 100vh;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: all 2s ease-in-out;
-}
 
-.icon{
-    position: sticky;
-    left: 0;
-}
-
+/* 
 @media (min-width: 559px) {
   .display-weather {
     display: flex;
@@ -60,4 +48,4 @@
     height: 50vh;
     text-align: center;
   }
-}
+} */

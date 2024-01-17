@@ -1,24 +1,23 @@
-import React, { useState, useContext } from 'react';
-import '../App.css';
-import WeatherContext from '../context/WeatherContext';
+import React, { useState, useContext } from "react";
+import "../App.css";
+import WeatherContext from "../context/WeatherContext";
 
-function Search() {
-  const {catchWeather, setCatchWeather} = useContext(WeatherContext)
-  
-  const [city, setCity] = useState('');
-  const [error, setError] = useState('');
+function Search({ onLogOut }) {
+  const { catchWeather, setCatchWeather } = useContext(WeatherContext);
+
+  const [city, setCity] = useState("");
+  const [error, setError] = useState("");
   // const [latitude, setLatitude] = useState(null);
   // const [longitude, setLongitude] = useState(null);
-  const apiKey = 'd54a96e0b4517e304ec98021394e455b';
-  const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
-
+  const apiKey = "d54a96e0b4517e304ec98021394e455b";
+  const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (city.trim() !== '') {
+    if (city.trim() !== "") {
       fetchWeatherDataByCity(city);
     }
-    setCity("")
+    setCity("");
   };
 
   const fetchWeatherDataByCity = async (city) => {
@@ -36,30 +35,36 @@ function Search() {
       } else {
         const data = await response.json();
         setCatchWeather(data);
-        setError('');
+        setError("");
       }
     } catch (error) {
       console.error(`Error in the request: ${error.message}`);
-      setError('Error fetching weather data.');
+      setError("Error fetching weather data.");
     }
   };
 
   return (
-    <>
-      <div>Weather App</div>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter City:
-          <input
-            type="text"
-            value={city}
-            name='text'
-            onChange={(e) => setCity(e.target.value)}
-          />
-        </label>
-        <button type="submit">Search</button>
-      </form>
-    </>
+    <div className="search-section">
+      <div className="top-searchsection">
+        <div className="right-section-title">Search your city</div>
+        <form onSubmit={handleSubmit}>
+          <label className="city-field">
+            City name:   </label>
+            <input
+              type="text"
+              value={city}
+              name="text"
+              onChange={(e) => setCity(e.target.value)}
+            />
+        
+          <button type="submit" className="search-button">Search</button>
+        </form>
+      </div>
+
+      <button onClick={onLogOut} className="bottom-searchsection">
+        Log Out
+      </button>
+    </div>
   );
 }
 
