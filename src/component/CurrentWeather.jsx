@@ -101,11 +101,31 @@ const CurrentWeather = ({ onLogOut }) => {
           ) : (
             <div className="leftpart-weatherinfo">
               <h2>Weather Information</h2>
-              <p>City: {catchWeather.name}</p>
-              <p>Temperature: {catchWeather.main && catchWeather.main.temp}°C</p>
-              <p>Weather Condition: {catchWeather.weather && catchWeather.weather[0].description}</p>
-              <p>Feels Like: {catchWeather.main && catchWeather.main.feels_like}°C</p>
-              <p>Wind Speed: {catchWeather.wind && catchWeather.wind.speed} m/s</p>
+              <img
+                src={`http://openweathermap.org/img/w/${catchWeather.weather[0].icon}.png`}
+                alt="weather icon"
+              />
+              <div className="leftpart-weatherinfo-detail">
+                <h4 className="city">{catchWeather.name}</h4>
+                <h4 className="temperature">{catchWeather.main && catchWeather.main.temp.toFixed(0)}°C</h4>
+                <div className="weather-condition">
+                  <p>
+                    Weather Condition:{" "}
+                    {catchWeather.weather &&
+                      catchWeather.weather[0].description}
+                  </p>
+                  
+                  <p>
+                    Feels Like:{" "}
+                    {catchWeather.main && catchWeather.main.feels_like.toFixed(0)}
+                    °C
+                  </p>
+                  <p>
+                    Wind Speed: {catchWeather.wind && catchWeather.wind.speed}{" "}
+                    m/s
+                  </p>
+                </div>
+              </div>
             </div>
           )}
         </div>
