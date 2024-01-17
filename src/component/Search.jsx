@@ -26,6 +26,8 @@ function Search({ onLogOut }) {
 
       if (!response.ok) {
         if (response.status === 404) {
+
+        alert("Place not found! Try again")
           setError(`City '${city}' not found.`);
         } else {
           throw new Error(`Request failed: ${response.status}`);
@@ -46,12 +48,11 @@ function Search({ onLogOut }) {
       <div className="top-searchsection">
         <div className="right-section-title">Search your city</div>
         <form onSubmit={handleSubmit} className="search-form">
-          <label className="city-field">
-            City name:   </label>
             <input
               type="text"
               value={city}
               name="text"
+              placeholder="Search City..."
               onChange={(e) => setCity(e.target.value)}
             />
         

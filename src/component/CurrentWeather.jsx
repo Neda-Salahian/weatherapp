@@ -83,11 +83,17 @@ const CurrentWeather = ({ onLogOut }) => {
   };
 
   // Bild für das jetzige Wetter
-  const weatherBack = `url(${
-    data.find((item) => item.name === catchWeather?.weather?.[0]?.description)
-      ?.pic
-  })`;
-  const defaultPic = `src/data/default.jpg`;
+  let weatherBack;
+
+if (catchWeather) {
+  const description = catchWeather?.weather?.[0]?.description;
+  const foundItem = data.find((item) => item.name === description);
+
+  if (foundItem && foundItem.pic) {
+    weatherBack = `url(${foundItem.pic})`;
+  }
+}
+
   // Bild für das jetzige Wetter
 
   console.log(catchWeather);
@@ -104,20 +110,18 @@ const CurrentWeather = ({ onLogOut }) => {
             ) : (
               <div className="leftpart-weatherinfo">
               <h2>Weather Information</h2>
-                  
+              
               <div className="leftpart-weatherinfo-detail">
                 <h4 className="city">{catchWeather.name}</h4>
                 <h4 className="temperature">{catchWeather.main && catchWeather.main.temp.toFixed(0)}°C</h4>
                 <div className="weather-condition">
-                  <p>
+                  <p style={{display: "flex"}}>
                     Weather Condition:{" "}
                     {catchWeather.weather &&
-                      catchWeather.weather[0].description}
-                      <img
+                      catchWeather.weather[0].description}<img
                 src={`http://openweathermap.org/img/w/${catchWeather.weather[0].icon}.png`}
-                alt="weather icon" 
+                alt="weather icon"
               />
-       
                   </p>
                   
                   <p>
