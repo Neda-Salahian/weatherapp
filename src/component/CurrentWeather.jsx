@@ -82,9 +82,7 @@ const CurrentWeather = ({ onLogOut }) => {
     }
   };
 
-  // Bild für das jetzige Wetter
   let weatherBack;
-
 if (catchWeather) {
   const description = catchWeather?.weather?.[0]?.description;
   const foundItem = data.find((item) => item.name === description);
@@ -94,16 +92,13 @@ if (catchWeather) {
   }
 }
 
-  // Bild für das jetzige Wetter
-
-  console.log(catchWeather);
   return (
     <div className="display-weather" style={{ backgroundImage: weatherBack }}>
       <WeatherContext.Provider value={{ catchWeather, setCatchWeather }}>
         <div className="left-part">
           <h3 className="leftpart-greeting">Hai {name}. Have a good day ! </h3>
           {!catchWeather ? (
-            <p style={{ color: "black" }}>{error ? (error) : (<p className="imageStyle" style={{ color: "black" }}>{error ? (error) : (<img src="../src/data/icons8-loading-100.png" alt="Loading" />)}</p>)}</p>
+            <p className="containerStyle" style={{ color: "black" }}>{error ? (error) : (<span className="imageStyle" style={{ color: "black" }}>{error ? (error) : (<img src="../src/data/icons8-loading-100.png" alt="Loading" />)}</span>)}</p>
           ) : (
             <div className="leftpart-weatherinfo">
               <h2>Weather Information</h2>
