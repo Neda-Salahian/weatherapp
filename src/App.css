@@ -109,6 +109,12 @@
   }
   
   .leftpart-weatherinfo {
+    /* background-color: #ffa50061; */
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+    color: #333333 ;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 10px;
   }
   
   .leftpart-weatherinfo h2 {
@@ -123,17 +129,20 @@
     justify-content: space-around;
     flex-wrap: wrap;
     line-height: 2;
+    
   }
   
   .leftpart-weatherinfo-detail .city {
     font-size: 40px;
     font-weight: bold;
-    color: rgb(59, 56, 56);
+    color: #333333 ;
+
   }
   
   .leftpart-weatherinfo-detail .city::first-letter {
     font-size: 2em;
-    color: black;
+    color: orange;
+
   }
   
   .leftpart-weatherinfo-detail .temperature {
@@ -240,6 +249,7 @@
   
     .leftpart-greeting {
       font-size: 30px;
+      color: #333333;
     }
   
     .leftpart-weatherinfo h2 {
@@ -278,3 +288,4 @@
           font-size: 19px;
         }
     }
+
