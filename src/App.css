@@ -78,12 +78,19 @@ button:hover {
 
 .leftpart-greeting {
   font-size: 40px;
+  outline-offset: 3px solid red;
   padding: 20px;
   text-align: center;
   margin: 30px 0;
+  color: #333333 
 }
 
 .leftpart-weatherinfo {
+    width: 80%;
+    margin: 0 auto;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.4));
+    border-radius: 10px;
+   
 }
 
 .leftpart-weatherinfo h2 {
@@ -153,6 +160,7 @@ button:hover {
 .city-field {
   font-size: 30px;
 }
+
 
 .search-button {
   font-size: 20px;

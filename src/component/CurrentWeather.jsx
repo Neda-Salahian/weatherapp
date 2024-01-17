@@ -96,15 +96,15 @@ const CurrentWeather = ({ onLogOut }) => {
       <WeatherContext.Provider value={{ catchWeather, setCatchWeather }}>
         <div className="left-part">
           <h3 className="leftpart-greeting">Hai {name}. Have a good day ! </h3>
+
+         
+
           {!catchWeather ? (
             <p style={{ color: "black" }}>{error || "Loading...."}</p>
-          ) : (
-            <div className="leftpart-weatherinfo">
+            ) : (
+              <div className="leftpart-weatherinfo">
               <h2>Weather Information</h2>
-              <img
-                src={`http://openweathermap.org/img/w/${catchWeather.weather[0].icon}.png`}
-                alt="weather icon"
-              />
+                  
               <div className="leftpart-weatherinfo-detail">
                 <h4 className="city">{catchWeather.name}</h4>
                 <h4 className="temperature">{catchWeather.main && catchWeather.main.temp.toFixed(0)}°C</h4>
@@ -113,6 +113,11 @@ const CurrentWeather = ({ onLogOut }) => {
                     Weather Condition:{" "}
                     {catchWeather.weather &&
                       catchWeather.weather[0].description}
+                      <img
+                src={`http://openweathermap.org/img/w/${catchWeather.weather[0].icon}.png`}
+                alt="weather icon" 
+              />
+       
                   </p>
                   
                   <p>
