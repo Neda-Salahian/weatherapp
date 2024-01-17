@@ -103,7 +103,7 @@ if (catchWeather) {
         <div className="left-part">
           <h3 className="leftpart-greeting">Hai {name}. Have a good day ! </h3>
           {!catchWeather ? (
-            <p style={{ color: "black" }}>{error || "Loading...."}</p>
+            <p style={{ color: "black" }}>{error ? (error) : (<p className="imageStyle" style={{ color: "black" }}>{error ? (error) : (<img src="../src/data/icons8-loading-100.png" alt="Loading" />)}</p>)}</p>
           ) : (
             <div className="leftpart-weatherinfo">
               <h2>Weather Information</h2>
