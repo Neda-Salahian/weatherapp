@@ -26,6 +26,8 @@ function Search({ onLogOut }) {
 
       if (!response.ok) {
         if (response.status === 404) {
+
+        alert("Place not found! Try again")
           setError(`City '${city}' not found.`);
         } else {
           throw new Error(`Request failed: ${response.status}`);
