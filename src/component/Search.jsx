@@ -47,11 +47,11 @@ function Search({ onLogOut }) {
         <div className="right-section-title">Search your city</div>
         <form onSubmit={handleSubmit} className="search-form">
           <label className="city-field">
-            City name:   </label>
             <input
               type="text"
               value={city}
               name="text"
+              placeholder="Search City..."
               onChange={(e) => setCity(e.target.value)}
             />
         
