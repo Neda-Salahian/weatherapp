@@ -33,7 +33,7 @@ export const data = [
     },
     {
         name: "broken clouds",
-        pic: "src/assets/broken-clouds.jpg"
+        pic: "../assets/broken-clouds.jpg"
     },
     {
         name: "overcast clouds",
@@ -41,7 +41,7 @@ export const data = [
     },
     {
         name: "scattered clouds",
-        pic: "assets/scattered-clouds.jpg"
+        pic: "src/assets/scattered-clouds.jpg"
     },
     {
         name: "light rain",
