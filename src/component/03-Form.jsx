@@ -9,7 +9,6 @@ function FormUserName({onLogIn}){
     const {name,setName} = useContext(Username);
     const {setIsLoggedIn} = useContext(LogInContext);
     const [inputName, setInputName] = useState("");
-    // const [isSubmitted, setIsSubmitted] = useState(false)
 
     function handleSubmit(event){
         event.preventDefault();

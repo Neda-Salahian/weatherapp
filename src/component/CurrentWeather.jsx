@@ -13,7 +13,7 @@ const CurrentWeather = ({ onLogOut }) => {
   const [error, setError] = useState(null);
   const apiKey = "d54a96e0b4517e304ec98021394e455b";
   const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
-  const [currentTime, setCurrentTime] = useState(new Date());
+ 
 
   useEffect(() => {
     // Get the user's current location by default
@@ -82,9 +82,7 @@ const CurrentWeather = ({ onLogOut }) => {
     }
   };
 
-  // Bild für das jetzige Wetter
   let weatherBack;
-
 if (catchWeather) {
   const description = catchWeather?.weather?.[0]?.description;
   const foundItem = data.find((item) => item.name === description);
@@ -94,9 +92,6 @@ if (catchWeather) {
   }
 }
 
-  // Bild für das jetzige Wetter
-
-  console.log(catchWeather);
   return (
     <div className="display-weather" style={{ backgroundImage: weatherBack }}>
       <WeatherContext.Provider value={{ catchWeather, setCatchWeather }}>
@@ -106,9 +101,9 @@ if (catchWeather) {
          
 
           {!catchWeather ? (
-            <p style={{ color: "black" }}>{error || "Loading...."}</p>
-            ) : (
-              <div className="leftpart-weatherinfo">
+            <p className="containerStyle" style={{ color: "black" }}>{error ? (error) : (<span className="imageStyle" style={{ color: "black" }}>{error ? (error) : (<img src="../src/data/icons8-loading-100.png" alt="Loading" />)}</span>)}</p>
+          ) : (
+            <div className="leftpart-weatherinfo">
               <h2>Weather Information</h2>
               
               <div className="leftpart-weatherinfo-detail">
