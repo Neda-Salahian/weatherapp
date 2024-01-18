@@ -86,7 +86,7 @@ const CurrentWeather = ({ onLogOut }) => {
   let transitionStyle ;
   if (catchWeather) {
     const description = catchWeather?.weather?.[0]?.description;
-    const foundItem = data.find((item) => item.name === description); console.log(data);
+    const foundItem = data.find((item) => item.name === description);
 
     if (foundItem && foundItem.pic) {
       weatherBack = `url(${foundItem.pic})`;

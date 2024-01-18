@@ -1,3 +1,5 @@
+import broken from "../assets/broken-clouds.jpg"
+
 export const data = [
     {
         name: "sunny",
@@ -33,7 +35,7 @@ export const data = [
     },
     {
         name: "broken clouds",
-        pic: "src/assets/broken-clouds.jpg"
+        pic: broken
     },
     {
         name: "overcast clouds",
