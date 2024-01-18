@@ -89,7 +89,7 @@ const CurrentWeather = ({ onLogOut }) => {
     const foundItem = data.find((item) => item.name === description);
 
     if (foundItem && foundItem.pic) {
-      weatherBack = `url(${foundItem.pic})`;
+      weatherBack = `url(../src/${foundItem.pic})`;
       transitionStyle = "background-image all 0.2s ease-in-out";
     } else {
       weatherBack = "url(" + defaultBackground + ")";

@@ -33,7 +33,7 @@ export const data = [
     },
     {
         name: "broken clouds",
-        pic: "src/assets/broken-clouds.jpg"
+        pic: "assets/broken-clouds.jpg"
     },
     {
         name: "overcast clouds",
