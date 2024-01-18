@@ -4,6 +4,7 @@ import Search from "./Search.jsx";
 import { Username } from "../context/Username.jsx";
 import WeatherContext from "../context/WeatherContext.jsx";
 import "../App.css";
+import defaultBackground from "../data/default.jpg";
 
 const CurrentWeather = ({ onLogOut }) => {
   const [catchWeather, setCatchWeather] = useState(null);
@@ -13,7 +14,6 @@ const CurrentWeather = ({ onLogOut }) => {
   const [error, setError] = useState(null);
   const apiKey = "d54a96e0b4517e304ec98021394e455b";
   const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
- 
 
   useEffect(() => {
     // Get the user's current location by default
@@ -83,45 +83,74 @@ const CurrentWeather = ({ onLogOut }) => {
   };
 
   let weatherBack;
-if (catchWeather) {
-  const description = catchWeather?.weather?.[0]?.description;
-  const foundItem = data.find((item) => item.name === description);
+  let transitionStyle ;
+  if (catchWeather) {
+    const description = catchWeather?.weather?.[0]?.description;
+    const foundItem = data.find((item) => item.name === description);
 
-  if (foundItem && foundItem.pic) {
-    weatherBack = `url(${foundItem.pic})`;
+    if (foundItem && foundItem.pic) {
+      weatherBack = `url(${foundItem.pic})`;
+      transitionStyle = "background-image all 0.2s ease-in-out";
+    } else {
+      weatherBack = "url(" + defaultBackground + ")";
+      transitionStyle = "background-image all 0.2s ease-in-out";
+      
+    }
   }
-}
 
   return (
-    <div className="display-weather" style={{ backgroundImage: weatherBack }}>
+    <div
+    className="display-weather"
+      style={{
+        backgroundImage: weatherBack,
+        transition: transitionStyle,
+      }}
+    >
       <WeatherContext.Provider value={{ catchWeather, setCatchWeather }}>
         <div className="left-part">
           <h3 className="leftpart-greeting">Hai {name}. Have a good day ! </h3>
 
-         
-
           {!catchWeather ? (
-            <p className="containerStyle" style={{ color: "black" }}>{error ? (error) : (<span className="imageStyle" style={{ color: "black" }}>{error ? (error) : (<img src="../src/data/icons8-loading-100.png" alt="Loading" />)}</span>)}</p>
+            <p className="containerStyle" style={{ color: "black" }}>
+              {error ? (
+                error
+              ) : (
+                <span className="imageStyle" style={{ color: "black" }}>
+                  {error ? (
+                    error
+                  ) : (
+                    <img
+                      src="../src/data/icons8-loading-100.png"
+                      alt="Loading"
+                    />
+                  )}
+                </span>
+              )}
+            </p>
           ) : (
             <div className="leftpart-weatherinfo">
               <h2>Weather Information</h2>
-              
+
               <div className="leftpart-weatherinfo-detail">
                 <h4 className="city">{catchWeather.name}</h4>
-                <h4 className="temperature">{catchWeather.main && catchWeather.main.temp.toFixed(0)}°C</h4>
+                <h4 className="temperature">
+                  {catchWeather.main && catchWeather.main.temp.toFixed(0)}°C
+                </h4>
                 <div className="weather-condition">
-                  <p style={{display: "flex"}}>
+                  <p style={{ display: "flex" }}>
                     Weather Condition:{" "}
                     {catchWeather.weather &&
-                      catchWeather.weather[0].description}<img
-                src={`http://openweathermap.org/img/w/${catchWeather.weather[0].icon}.png`}
-                alt="weather icon"
-              />
+                      catchWeather.weather[0].description}
+                    <img
+                      src={`http://openweathermap.org/img/w/${catchWeather.weather[0].icon}.png`}
+                      alt="weather icon"
+                    />
                   </p>
-                  
+
                   <p>
                     Feels Like:{" "}
-                    {catchWeather.main && catchWeather.main.feels_like.toFixed(0)}
+                    {catchWeather.main &&
+                      catchWeather.main.feels_like.toFixed(0)}
                     °C
                   </p>
                   <p>

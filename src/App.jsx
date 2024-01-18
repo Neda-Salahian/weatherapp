@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     const storedName = localStorage.getItem("LoggedInName");
-    
+
     if (storedName) {
       setName(JSON.parse(storedName));
       setIsLoggedIn(true);
@@ -28,17 +28,16 @@ function App() {
     setIsLoggedIn(true);
   };
 
-
   const handleLogOut = () => {
     localStorage.removeItem("LoggedInName");
     setName("");
-    setIsLoggedIn(false)
-  }
+    setIsLoggedIn(false);
+  };
   return (
     <>
- <LogInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      <LogInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
         <Username.Provider value={{ name, setName }}>
-        {isLoading ? (
+          {isLoading ? (
             <></>
           ) : isLoggedIn ? (
             <MainContent onLogOut={handleLogOut} />
