@@ -5,58 +5,58 @@ export const data = [
     },
     {
         name: "clear sky",
-        pic: "src/data/clear-sky.jpg"
+        pic: "src/assets/clear-sky.jpg"
     },
     {
         name: "fog",
-        pic: "src/data/fog.jpg",
+        pic: "src/assets/fog.jpg",
     },
     {
         name: "haze",
-        pic: "src/data/haze.jpg"
+        pic: "src/assets/haze.jpg"
     },
     {
         name: "mist",
-        pic: "src/data/mist.jpg"
+        pic: "src/assets/mist.jpg"
     },
     {
         name: "few clouds",
-        pic: "src/data/few-clouds.jpg"
+        pic: "src/assets/few-clouds.jpg"
     },
     {
         name: "partly cloudy",
-        pic: "src/data/partly-cloudy.jpg"
+        pic: "src/assets/partly-cloudy.jpg"
     },
     {
         name: "moderate cloudy",
-        pic: "src/data/moderate-cloudy.jpg"
+        pic: "src/assets/moderate-cloudy.jpg"
     },
     {
         name: "broken clouds",
-        pic: "src/data/broken-clouds.jpg"
+        pic: "src/assets/broken-clouds.jpg"
     },
     {
         name: "overcast clouds",
-        pic: "src/data/overcast-cloudy.jpg"
+        pic: "src/assets/overcast-cloudy.jpg"
     },
     {
         name: "scattered clouds",
-        pic: "src/data/scattered-clouds.jpg"
+        pic: "src/assets/scattered-clouds.jpg"
     },
     {
         name: "light rain",
-        pic: "src/data/light-rain.jpg",
+        pic: "src/assets/light-rain.jpg",
     },
     {
         name: "moderate rain",
-        pic: "src/data/moderate-rain.jpg",
+        pic: "src/assets/moderate-rain.jpg",
     },
     {
         name: "snow",
-        pic: "src/data/snow.jpg",
+        pic: "src/assets/snow.jpg",
     },
     {
         name: "light snow",
-        pic: "src/data/light-snow.jpg",
+        pic: "src/assets/light-snow.jpg",
     },
 ];

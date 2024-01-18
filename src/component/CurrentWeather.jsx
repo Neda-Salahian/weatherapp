@@ -90,8 +90,10 @@ if (catchWeather) {
   if (foundItem && foundItem.pic) {
     weatherBack = `url(${foundItem.pic})`;
   }
+} else {
+  weatherBack = "url(src/assets/default.jpg)"
 }
-
+console.log(catchWeather)
   return (
     <div className="display-weather" style={{ backgroundImage: weatherBack }}>
       <WeatherContext.Provider value={{ catchWeather, setCatchWeather }}>
@@ -110,6 +112,7 @@ if (catchWeather) {
                 <h4 className="city">{catchWeather.name}</h4>
                 <h4 className="temperature">{catchWeather.main && catchWeather.main.temp.toFixed(0)}°C</h4>
                 <div className="weather-condition">
+                 <h4>Country: {catchWeather.sys.country}</h4> 
                   <p style={{display: "flex"}}>
                     Weather Condition:{" "}
                     {catchWeather.weather &&
