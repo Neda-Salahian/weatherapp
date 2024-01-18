@@ -101,7 +101,7 @@ const CurrentWeather = ({ onLogOut }) => {
     <div
     className="display-weather"
       style={{
-        background: "blue",
+        backgroundImage: weatherBack,
         transition: transitionStyle,
       }}
     >
