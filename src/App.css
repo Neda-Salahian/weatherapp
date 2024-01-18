@@ -192,6 +192,25 @@ button:hover {
   color: orange;
   cursor: pointer;
 }
+
+.search-history {
+  /* border: 2px solid blue; */
+}
+
+.search-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.search-history li {
+  cursor: pointer;
+  margin-bottom: 5px; 
+}
+
+.search-history li:hover {
+  text-decoration: underline; 
+}
+
 @media (max-width: 768px) {
   .left-part,
   .right-part {
