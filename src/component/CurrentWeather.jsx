@@ -1,3 +1,4 @@
+import loadingIcon from "../assets/icons8-loading-100.png"
 import { useContext, useState, useEffect } from "react";
 import { data } from "../data/pictureData";
 import Search from "./Search.jsx";
@@ -120,7 +121,7 @@ const CurrentWeather = ({ onLogOut }) => {
                     error
                   ) : (
                     <img
-                      src="../src/data/icons8-loading-100.png"
+                      src={loadingIcon}
                       alt="Loading"
                     />
                   )}
