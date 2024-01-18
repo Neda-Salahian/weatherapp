@@ -108,7 +108,8 @@ const CurrentWeather = ({ onLogOut }) => {
     >
       <WeatherContext.Provider value={{ catchWeather, setCatchWeather }}>
         <div className="left-part">
-          <h3 className="leftpart-greeting">Hai {name}. Have a good day ! </h3>
+        <h3 className="leftpart-greeting">Hai {name.charAt(0).toUpperCase() + name.slice(1)}. Have a good day ! </h3>
+
 
           {!catchWeather ? (
             <p className="containerStyle" style={{ color: "black" }}>

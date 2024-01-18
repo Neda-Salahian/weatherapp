@@ -25,11 +25,12 @@ function Search({ onLogOut }) {
     setCity("");
   };
 
+  function capitalizeFirstLetter(city){
+    return city.charAt(0).toUpperCase() + city.slice(1);
+  }
+
   const handleSearchHistoryClick = (clickedCity) => {
-    console.log(clickedCity, "clicked")
-    if (!searchHistory.includes(clickedCity)) {
-      fetchWeatherDataByCity(clickedCity);
-    }
+    fetchWeatherDataByCity(clickedCity);
   };
 
   const fetchWeatherDataByCity = async (city) => {
@@ -50,7 +51,10 @@ function Search({ onLogOut }) {
         setCatchWeather(data);
         setError("");
 
-        const updatedSearchHistory = [city, ...searchHistory.slice(0, 4)];
+        const updatedSearchHistory = searchHistory.includes(city)
+          ? searchHistory
+          : [city, ...searchHistory.slice(0, 4)];
+
         setSearchHistory(updatedSearchHistory);
         localStorage.setItem(
           "searchHistory",
@@ -82,11 +86,11 @@ function Search({ onLogOut }) {
       </div>
 
       <div className="search-history">
-        <h3>Recent Searches:</h3>
+        <h3>Recently search:</h3>
         <ul className="search-history">
           {searchHistory.map((item, index) => (
             <li key={index} onClick={() => handleSearchHistoryClick(item)}>
-              {item}
+              {index + 1}. {capitalizeFirstLetter(item)}
             </li>
           ))}
         </ul>
