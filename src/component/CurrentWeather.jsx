@@ -4,8 +4,8 @@ import { data } from "../data/pictureData";
 import Search from "./Search.jsx";
 import { Username } from "../context/Username.jsx";
 import WeatherContext from "../context/WeatherContext.jsx";
-import "../App.css";
 import defaultBackground from "../assets/default.jpg";
+import PropTypes from 'prop-types';
 
 const CurrentWeather = ({ onLogOut }) => {
   const [catchWeather, setCatchWeather] = useState(null);
@@ -17,7 +17,6 @@ const CurrentWeather = ({ onLogOut }) => {
   const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
 
   useEffect(() => {
-    // Get the user's current location by default
     navigator.geolocation.getCurrentPosition(
       (position) => {
         setLatitude(position.coords.latitude);
@@ -32,7 +31,6 @@ const CurrentWeather = ({ onLogOut }) => {
       }
     );
   }, [longitude, latitude]);
-
   const fetchWeatherData = async (lat, lon) => {
     const url = `${apiUrl}?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
 
@@ -84,18 +82,14 @@ const CurrentWeather = ({ onLogOut }) => {
   };
 
   let weatherBack;
-  let transitionStyle ;
   if (catchWeather) {
     const description = catchWeather?.weather?.[0]?.description;
     const foundItem = data.find((item) => item.name === description);
 
     if (foundItem && foundItem.pic) {
       weatherBack = `url(${foundItem.pic})`;
-      transitionStyle = "background-image all 0.2s ease-in-out";
     } else {
       weatherBack = "url(" + defaultBackground + ")";
-      transitionStyle = "background-image all 0.2s ease-in-out";
-      
     }
   }
   return (
@@ -103,7 +97,7 @@ const CurrentWeather = ({ onLogOut }) => {
     className="display-weather"
       style={{
         backgroundImage: weatherBack,
-        transition: transitionStyle,
+        transition: "2s all ease-in-out",
       }}
     >
       <WeatherContext.Provider value={{ catchWeather, setCatchWeather }}>
@@ -143,12 +137,11 @@ const CurrentWeather = ({ onLogOut }) => {
                     Weather Condition:{" "} 
                     {catchWeather.weather &&
                       catchWeather.weather[0].description}
-                    <img
+                    <img style={{width: "50px", height: "50px"}}
                       src={`http://openweathermap.org/img/w/${catchWeather.weather[0].icon}.png`}
                       alt="weather icon"
                     />
                   </p>
-
                   <p>
                     Feels Like:{" "}
                     {catchWeather.main &&
@@ -173,3 +166,7 @@ const CurrentWeather = ({ onLogOut }) => {
 };
 
 export default CurrentWeather;
+
+CurrentWeather.propTypes = {
+  onLogOut: PropTypes.any
+};

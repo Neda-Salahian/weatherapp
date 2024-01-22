@@ -21,10 +21,12 @@ function Search({ onLogOut }) {
     e.preventDefault();
     if (city.trim() !== "") {
       fetchWeatherDataByCity(city);
+    } else if(city.trim() === ""){
+      alert("Please enter a valid place name.");
     }
     setCity("");
+    
   };
-
   function capitalizeFirstLetter(city){
     return city.charAt(0).toUpperCase() + city.slice(1);
   }
@@ -41,7 +43,7 @@ function Search({ onLogOut }) {
 
       if (!response.ok) {
         if (response.status === 404) {
-          alert("Place not found! Try again");
+          alert("Please enter a valid location.");
           setError(`City '${city}' not found.`);
         } else {
           throw new Error(`Request failed: ${response.status}`);

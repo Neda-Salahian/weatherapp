@@ -14,6 +14,7 @@ import moderateRain from "../assets/moderate-rain.jpg"
 import snow from "../assets/snow.jpg"
 import lightSnow from "../assets/light-snow.jpg"
 import heavyIntensityRain from "../assets/heavy-intensity-rain.jpg"
+import lightIntensityDrizzleRain from "../assets/light-intensity-drizzle-rain.jpg"
 
 export const data = [
     {
@@ -67,6 +68,10 @@ export const data = [
     {
         name: "moderate rain",
         pic: moderateRain
+    },
+    {
+        name: "light intensity drizzle rain",
+        pic: lightIntensityDrizzleRain
     },
     {
         name: "heavy intensity rain",
